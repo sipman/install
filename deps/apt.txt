@@ -1,0 +1,7 @@
+curl
+gcc
+gimp
+inkscape
+vlc
+gnome-tweak-tool
+vim
