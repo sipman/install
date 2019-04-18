@@ -1,4 +1,5 @@
 COMPLETED=()
+WD=$(pwd)
 
 not_in_array() {
     for INST in "${COMPLETED[@]}"; do
@@ -32,7 +33,10 @@ inst_scripts() {
         base="$(basename $filename)"
         if not_in_array $base; then
             echo "$base: install required"
-            #source $base
+            cd $WD
+            cd scripts
+            source $filename
+            cd $WD
         fi
     done
     cd ..
