@@ -57,8 +57,9 @@ echo "   [1] apt dependencies"
 echo "   [2] snap dependencies"
 echo "   [3] scripts"
 echo "   [4] bashrc"
+echo "   [5] specific script"
 echo ""
-echo "Enter number: "
+printf "Enter number: "
 read scale
 if ! [ "$scale" -eq "$scale" ] 2> /dev/null
 then
@@ -78,6 +79,11 @@ elif [[ $scale = 3 ]]; then
     inst_scripts
 elif [[ $scale = 4 ]]; then
     echo "not ready yet"
+elif [[ $scale = 5 ]]; then
+    printf "Enter script name: "
+    cd scripts
+    read script
+    source $script
 else
     echo "wtf?"
 fi

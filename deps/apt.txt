@@ -5,3 +5,4 @@ inkscape
 vlc
 gnome-tweak-tool
 vim
+blueman
