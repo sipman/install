@@ -6,3 +6,6 @@ vlc
 gnome-tweak-tool
 vim
 blueman
+lastpass-cli
+xclip
+xsel
