@@ -27,6 +27,13 @@ inst_snap() {
     sudo snap install $(grep -vE "^\s*#" deps/snap.txt  | tr "\n" " ")
 }
 
+inst_code() {
+    cat deps/code.txt | while read line 
+    do
+        code --install-extension $line
+    done
+}
+
 inst_scripts() {
     cd scripts
     for filename in ./*.sh; do
@@ -58,6 +65,7 @@ echo "   [2] snap dependencies"
 echo "   [3] scripts"
 echo "   [4] bashrc"
 echo "   [5] specific script"
+echo "   [6] VS code extensions"
 echo ""
 printf "Enter number: "
 read scale
@@ -84,6 +92,8 @@ elif [[ $scale = 5 ]]; then
     cd scripts
     read script
     source $script
+elif [[ $scale = 6 ]]; then
+    inst_code
 else
     echo "wtf?"
 fi
