@@ -9,3 +9,4 @@ blueman
 lastpass-cli
 xclip
 xsel
+ack
