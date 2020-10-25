@@ -14,3 +14,4 @@ add-ssh "Secure Notes/Bitbucket SSH"        bitbucket
 add-ssh "Secure Notes/Beståteori SSH"       bestaateori
 add-ssh "Secure Notes/Polytope Clients SSH" polytope-clients
 add-ssh "Secure Notes/Auto Taxi SSH"        auto
+add-ssh "Secure Notes/AAU SSH"              aau
