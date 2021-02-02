@@ -10,3 +10,4 @@ lastpass-cli
 xclip
 xsel
 ack
+smbclient

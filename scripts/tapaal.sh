@@ -1,0 +1,1 @@
+curl -s "https://raw.githubusercontent.com/boginw/tapaal-installer/master/install.sh" | sudo bash
