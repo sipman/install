@@ -11,3 +11,4 @@ xclip
 xsel
 ack
 smbclient
+htop

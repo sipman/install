@@ -2,7 +2,7 @@ require java.sh
 
 ANDROID_HOME="/usr/lib/android-sdk/"
 CMDLINE_TOOLS=${ANDROID_HOME}cmdline-tools/
-TOOLS_BIN_FOLDER=${CMDLINE_TOOLS}tools/bin/
+TOOLS_BIN_FOLDER=${CMDLINE_TOOLS}bin/
 SDKMANAGER=${TOOLS_BIN_FOLDER}sdkmanager
 FILE=$(curl -s 'https://developer.android.com/studio#downloads' -o- | grep -o -m1 "commandlinetools-linux-[0-9]*_latest.zip")
 
