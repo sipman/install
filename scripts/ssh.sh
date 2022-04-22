@@ -1,17 +1,24 @@
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+mv ~/.ssh/config ~/.ssh/config.bak
+touch ~/.ssh/config && chmod 600 ~/.ssh/config
+
+KEY_PREFIX="keyname: "
+
 function add-ssh() {
     SSH_HOST=$(lpass show --field="Hostname" "$1")
+    SSH_KEY=$(lpass show "$1" --notes | grep -o "keyname: .*" | sed -e "s/^keyname: //")
 
-    mkdir -p ~/.ssh && chmod 700 ~/.ssh
-    touch ~/.ssh/config.bak && chmod 600 ~/.ssh/config.bak
-    touch ~/.ssh/$2.id_rsa && chmod 600 ~/.ssh/$2.id_rsa
+    echo " - adding \"$1\", keyname: \"$SSH_KEY\", host: \"$SSH_HOST\""
 
-    printf "\nHost $SSH_HOST\n        IdentityFile ~/.ssh/$2.id_rsa\n" >> ~/.ssh/config.bak
-    lpass show --field="Private Key" "$1" > ~/.ssh/$2.id_rsa
+    touch ~/.ssh/$SSH_KEY.id_rsa && chmod 600 ~/.ssh/$SSH_KEY.id_rsa
+
+    printf "\nHost $SSH_HOST\n        IdentityFile ~/.ssh/$SSH_KEY.id_rsa\n" >> ~/.ssh/config
+    lpass show --field="Private Key" "$1" > ~/.ssh/$SSH_KEY.id_rsa
 }
 
-add-ssh "Secure Notes/GitHub SSH"           github
-add-ssh "Secure Notes/Bitbucket SSH"        bitbucket
-add-ssh "Secure Notes/Beståteori SSH"       bestaateori
-add-ssh "Secure Notes/Polytope Clients SSH" polytope-clients
-add-ssh "Secure Notes/Auto Taxi SSH"        auto
-add-ssh "Secure Notes/AAU SSH"              aau
+lpass ls | grep -o "Secure Notes/.*SSH" | while read line
+do
+    add-ssh "$line"
+done
+
+echo "SSH keys added"

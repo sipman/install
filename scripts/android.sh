@@ -15,6 +15,7 @@ sudo mv $FILE $CMDLINE_TOOLS
 cd $CMDLINE_TOOLS
 sudo unzip $FILE
 sudo rm $FILE
+mv cmdline-tools tools
 sudo chmod -R 777 $ANDROID_HOME
 
 # Fix .bashrc

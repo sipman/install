@@ -1,2 +1,2 @@
 mkdir ~/projects
-echo "file:///home/hamburger/projects" >> ~/.config/gtk-3.*/bookmarks
+echo "file:///home/${USER}/projects" >> ~/.config/gtk-3.*/bookmarks
