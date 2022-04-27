@@ -3,7 +3,7 @@ gcc
 gimp
 inkscape
 vlc
-gnome-tweak-tool
+gnome-tweaks
 vim
 blueman
 lastpass-cli
